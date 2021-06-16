@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+    - "*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: docker-practice/actions-setup-docker@1.0.4
+    - run: make build
+    - uses: actions/upload-artifact@v2
+      with:
+        name: specs
+        path: "**/index.html"
+    - name: GitHub Pages
+      if: ${{ github.ref == 'refs/heads/master' }}
+      uses: crazy-max/ghaction-github-pages@v2.1.1
+      with:
+        build_dir: .
+        jekyll: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
