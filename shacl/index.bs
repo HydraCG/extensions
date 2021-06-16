@@ -1,0 +1,25 @@
+<pre class='metadata'>
+Title: Hydra-SHACL Interoperability
+Shortname: hashi
+Level: 1
+Status: LD
+Group: HydraCG
+URL: https://hydracg.github.io/extensions/shacl
+Editor: Tomasz Pluskiewicz, Zazuko GmbH https://zazuko.com/, https://t-code.pl
+Abstract: This document provides additional terms and examples of using SHACL together with Hydra to describe API's hyperemedia
+Markup Shorthands: markdown yes
+</pre>
+
+Introduction {#intro}
+=====================
+
+Hydra Core vocabulary does define a handful of data modeling terms such as `hydra:Class` and `hydra:supportedProperty`
+which can be used to build basic APIs. However, it was never a goal of Hydra Core to become a full-blown modeling
+language, given available alternatives.
+
+One such alternative is [[SHACL]], which is defined by its authors as "a language for validating RDF graphs against a
+set of conditions", yet its usefulness goes way beyond just data validation. See the [[shacl-ucr|SHACL Use Cases and Requirements]]
+note for various ideas for employing [[SHACL]].
+
+In this document we propose various ways in which [[SHACL]] can be used by both Hydra API publishers and consumers to
+facilitate client-server interaction.
