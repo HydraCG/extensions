@@ -38,7 +38,7 @@ The base namespace of this extension and its unique identifier is `http://www.w3
 
 The preferred prefix is `hashi:`.
 
-#  Announcing the extension # {#annouincing}
+#  Announcing the extension # {#announcing}
 
 Conforming with the [[Hydra#extensions|Extensions]] section of [[Hydra]], an API MUST announce the use of an extension by adding it to its `hydra:ApiDocumentation`:
 
@@ -81,4 +81,3 @@ Issue(11): Filtered choices
 # SHACL Shapes for Hydra Core terms # {#shapes}
 
 Issue(12): Model the Hydra Core vocabulary as node shapes
-
