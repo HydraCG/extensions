@@ -54,7 +54,7 @@ Conforming with the [[Hydra#extensions|Extensions]] section of [[Hydra]], an API
   "extension": "http://www.w3.org/ns/shacl#"
 }
 </pre>
-</div
+</div>
 
 # Extending a Hydra API # {#usage}
 
