@@ -4,7 +4,7 @@ Shortname: hashi
 Level: 1
 Status: LD
 Group: HydraCG
-URL: https://hydracg.github.io/extensions/shacl
+URL: https://w3id.org/hydra/extension/shacl
 Editor: Tomasz Pluskiewicz, Zazuko GmbH https://zazuko.com/, https://t-code.pl
 Abstract: This document provides additional terms and examples of using SHACL together with Hydra to describe API's hyperemedia
 Markup Shorthands: markdown yes
@@ -34,9 +34,11 @@ In this document we propose various ways in which [[SHACL]] can be used by both 
 
 # Conventions # {#conventions}
 
-The base namespace of this extension and its unique identifier is `http://www.w3.org/ns/hydra/shacl#`.
+The base namespace of extensions is `https://w3id.org/hydra/extension#`.
 
-The preferred prefix is `hashi:`.
+The preferred prefix is `hex:`.
+
+The unique identifier of the SHACL extension is `https://w3id.org/hydra/extension#shacl`
 
 #  Announcing the extension # {#announcing}
 
@@ -51,7 +53,7 @@ Conforming with the [[Hydra#extensions|Extensions]] section of [[Hydra]], an API
 {
   "@context": "http://www.w3.org/ns/hydra/context.jsonld",
   "@id": "http://api.example.com/doc/",
-  "extension": "http://www.w3.org/ns/shacl#"
+  "extension": "https://w3id.org/hydra/extension#shacl"
 }
 </pre>
 </div>
