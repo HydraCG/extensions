@@ -1,0 +1,7 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix hex: <https://w3id.org/hydra/extension#>
+
+hex:shacl
+    rdfs:label "SHACL extension for Hydra Core vocabulary" ;
+    rdfs:seeAlso <https://w3id.org/hydra/extension/shacl> ;
+.
