@@ -5,4 +5,4 @@ services:
       context: .
       dockerfile: bs.Dockerfile
     volumes:
-    - .:/extensions
+    - ./extensions:/extensions

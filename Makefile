@@ -2,7 +2,7 @@ watch:
 	docker-compose run --rm bikeshed watch /extensions/$(spec)/index.bs
 
 define build-target
-	docker-compose run --rm bikeshed spec /extensions/$1
+	docker-compose run --rm bikeshed spec $1
 endef
 
 build:
@@ -12,5 +12,11 @@ build:
 	done
 
 new:
-	mkdir -p $(spec)
-	docker-compose run --rm bikeshed template > $(spec)/index.bs
+	mkdir -p ./extensions/$(spec)
+	docker-compose run --rm bikeshed template > ./extensions/$(spec)/index.bs
+
+build-vocabulary:
+	npx graphy read -c ttl / concat / tree / write -c nt --inputs extensions/*/vocab.ttl > extensions/extensions.nt
+	npx graphy read -c ttl / concat / tree / write -c ttl --inputs extensions/*/vocab.ttl > extensions/extensions.ttl
+	npx graphy read -c ttl / concat / tree / scribe -c xml --inputs extensions/*/vocab.ttl > extensions/extensions.rdf
+	cat extensions/*/vocab.ttl | npx @frogcat/ttl2jsonld > extensions/extensions.jsonld
