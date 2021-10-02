@@ -1,0 +1,85 @@
+<pre class='metadata'>
+Title: Hydra-SHACL Interoperability
+Shortname: hashi
+Level: 1
+Status: LD
+Group: HydraCG
+URL: https://w3id.org/hydra/extension/shacl
+Editor: Tomasz Pluskiewicz, Zazuko GmbH https://zazuko.com/, https://t-code.pl
+Abstract: This document provides additional terms and examples of using SHACL together with Hydra to describe API's hyperemedia
+Markup Shorthands: markdown yes
+</pre>
+
+<pre class=biblio>
+{
+	"hydra": {
+		"authors": [
+			"Markus Lanthaler"
+		],
+		"href": "http://www.hydra-cg.com/spec/latest/core/",
+		"title": "Hydra Core Vocabulary",
+		"status": "UD",
+		"publisher": "W3C"
+	}
+}
+</pre>
+
+# Introduction # {#intro}
+
+[[!Hydra|Hydra Core]] vocabulary does define a handful of data modeling terms such as `hydra:Class` and `hydra:supportedProperty` which can be used to build basic APIs. However, it was never a goal of Hydra Core to become a full-blown modeling language, given available alternatives.
+
+One such alternative is [[!SHACL]], which is defined by its authors as "a language for validating RDF graphs against a set of conditions", yet its usefulness goes way beyond just data validation. See the [[shacl-ucr|SHACL Use Cases and Requirements]] note for various ideas for employing [[SHACL]].
+
+In this document we propose various ways in which [[SHACL]] can be used by both Hydra API publishers and consumers to facilitate client-server interaction.
+
+# Conventions # {#conventions}
+
+The base namespace of extensions is `https://w3id.org/hydra/extension#`.
+
+The preferred prefix is `hex:`.
+
+The unique identifier of the SHACL extension is `https://w3id.org/hydra/extension#shacl`
+
+#  Announcing the extension # {#announcing}
+
+Conforming with the [[Hydra#extensions|Extensions]] section of [[Hydra]], an API MUST announce the use of an extension by adding it to its `hydra:ApiDocumentation`:
+
+<div class='example'>
+    <p>
+        Adding SHACL extension to an API
+    </p>
+
+<pre highlight="json" line-highlight="4">
+{
+  "@context": "http://www.w3.org/ns/hydra/context.jsonld",
+  "@id": "http://api.example.com/doc/",
+  "extension": "https://w3id.org/hydra/extension#shacl"
+}
+</pre>
+</div>
+
+# Extending a Hydra API # {#usage}
+
+## Using Node Shapes to describe request payloads ## {#expects}
+
+Issue(9): Node Shapes used as objects of `hydra:expects`
+
+## Discovering shapes ## {#discovery}
+
+Issue(10): Add a specialized property to link to a collection of shapes
+
+## Providing choices to properties ## {#linking}
+
+Provide choices for properties rendered in a form as `dash:EnumSelectEditor` and `dash:InstancesSelectEditor`.
+
+### Using `hydra:collection` ### {#property-collection}
+
+Issue(11): Static choices
+
+### Using `hydra:search` ### {#property-search}
+
+Issue(11): Filtered choices
+
+# SHACL Shapes for Hydra Core terms # {#shapes}
+
+Issue(12): Model the Hydra Core vocabulary as node shapes
