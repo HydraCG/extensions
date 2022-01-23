@@ -2,6 +2,14 @@
 
 This repository gathers vocabularies which extend [Hydra Core](http://www.hydra-cg.com/spec/latest/core/) to allow implementors to create richer hypermedia in their Hydra APIs.
 
+## Extension documents
+
+<!-- please keep this sorted alphabetically -->
+
+| Title | URL |
+| -- | -- |
+| Hydra-SHACL Interoperability | http://w3id.org/hydra/extension/shacl |
+
 ## Adding extensions
 
 Simply run `make new spec=my-extension` and commit the created `index.bs` file.
