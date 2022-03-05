@@ -1,0 +1,36 @@
+<pre class='metadata'>
+Title: Hydra in OWL
+Shortname: hydra-in-owl
+Level: 1
+Status: LD
+Group: Hydra Community Group
+URL: https://hydracg.github.io/extensions/hydra-in-owl
+Editor: Karol Szczepański
+Abstract: Hydra terms extensively described with Web Ontology Language (OWL).
+</pre>
+
+<pre class=biblio>
+{
+	"hydra": {
+		"authors": [
+			"Markus Lanthaler"
+		],
+		"href": "http://www.hydra-cg.com/spec/latest/core/",
+		"title": "Hydra Core Vocabulary",
+		"status": "UD",
+		"publisher": "W3C"
+	}
+}
+</pre>
+
+Introduction {#intro}
+=====================
+
+This extensions describes [[!Hydra|Hydra Core Vocabulary]] terms using [[!OWL|Web Ontology Language]] (OWL).
+It neither present any new Hydra terms nor replaces any existing definitions. It SHOULD be used in conjunction with the
+[[!Hydra|Hydra Core Vocabulary]] specification as it is a complementary specification.
+
+It's purpose is purely to describe all the terms with pure [[!RDFS|Resource Description Framework Schema]] (RDFS) and
+[[!OWL|Web Ontology Language]] (OWL) ontologies so is is possible to either validate hydra constructs or use it with
+RDF reasoners.
+
