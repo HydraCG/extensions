@@ -13,6 +13,12 @@ jobs:
       with:
         node-version: 14
     - run: make build
+    - name: Check all built
+      run: |
+        NUM_BS=$(find extensions/*/ -name "index.bs" | wc -l);
+        NUM_HTML=$(find extensions/*/ -name "index.html" | wc -l);
+        [[ NUM_BS -eq NUM_HTML ]] || (echo "$(expr $NUM_BS - $NUM_HTML) bikeshed not built" && exit 1)
+        
     - run: make build-vocabulary
     - name: GitHub Pages
       if: ${{ github.ref == 'refs/heads/master' }}
