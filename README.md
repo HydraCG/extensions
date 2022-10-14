@@ -9,6 +9,8 @@ This repository gathers vocabularies which extend [Hydra Core](http://www.hydra-
 | Title | URL |
 | -- | -- |
 | Hydra-SHACL Interoperability | http://w3id.org/hydra/extension/shacl |
+| Hydra in OWL | http://w3id.org/hydra/extension/hydra-in-owl |
+| Hydra in SHACL | http://w3id.org/hydra/extension/hydra-in-shacl |
 
 ## Adding extensions
 
