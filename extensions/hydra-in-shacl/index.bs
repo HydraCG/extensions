@@ -1,6 +1,6 @@
 <pre class='metadata'>
-Title: Hydra in OWL
-Shortname: hydra-in-owl
+Title: Hydra in SHACL
+Shortname: hydra-in-shacl
 Level: 1
 Status: LD
 Group: Hydra Community Group
