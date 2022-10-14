@@ -1,0 +1,112 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix hydra: <http://www.w3.org/ns/hydra/core#>.
+@prefix hiowl: <https://w3id.org/hydra/in-owl#>.
+
+<https://w3id.org/hydra/in-owl>
+	rdfs:label "OWL description of the Hydra Core vocabulary";
+	rdfs:seeAlso <https://w3id.org/hydra/in-owl>.
+
+hydra:Class owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:title; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:description; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:Link owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:title; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:description; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:ApiDocumentation owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:entrypoint; owl:minCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:title; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:description; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:possibleStatus rdfs:domain [a owl:Class; owl:unionOf hydra:ApiDocumentation, hydra:Operation].
+
+hydra:SupportedProperty owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:required; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:readable; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:writable; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:title; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:description; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:property rdfs:domain [a owl:Class; owl:unionOf hydra:SupportedProperty, hydra:IriTemplateMapping].
+
+hydra:required rdfs:domain [a owl:Class; owl:unionOf hydra:SupportedProperty, hydra:IriTemplateMapping].
+
+hydra:supportedOperation rdfs:domain
+	[a owl:Class; owl:unionOf rdfs:Class, hydra:Class, hydra:Link, hydra:TemplatedLink, hydra:SupportedProperty].
+
+hydra:Operation owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:title; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:description; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:expects rdfs:range [a owl:Class; owl:unionOf rdfs:Resource, hydra:Resource, rdfs:Class, hydra:Class];.
+
+hydra:returns rdfs:range [a owl:Class; owl:unionOf rdfs:Resource, hydra:Resource, rdfs:Class, hydra:Class];.
+
+hydra:Status owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:title; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:description; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:title rdfs:domain
+	[a owl:Class; owl:unionOf hydra:ApiDocumentation, hydra:Status, hydra:Class, hydra:SupportedProperty, hydra:Operation, hydra:Link, hydra:TemplatedLink].
+
+hydra:description rdfs:domain
+	[a owl:Class; owl:unionOf hydra:ApiDocumentation, hydra:Status, hydra:Class, hydra:SupportedProperty, hydra:Operation, hydra:Link, hydra:TemplatedLink].
+
+hydra:Collection owl:equivalentClass [a owl:Restriction; owl:onProperty hydra:totalItems; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:memberAssertion rdfs:range
+	[a owl:Class; owl:unionOf hiowl:SubjectObjectMemberAssertion, hiowl:ObjectPropertyMemberAssertion, hiowl:SubjectPropertyMemberAssertion].
+
+hiowl:SubjectObjectMemberAssertion owl:equivalentClass [
+	owl:intersectionOf
+		[a owl:Restriction; owl:onProperty hydra:subject; owl:minCardinality "1"^^xsd:nonNegativeInteger],
+		[a owl:Restriction; owl:onProperty hydra:object; owl:minCardinality "1"^^xsd:nonNegativeInteger]
+	].
+hiowl:ObjectPropertyMemberAssertion owl:equivalentClass [
+	owl:intersectionOf
+		[a owl:Restriction; owl:onProperty hydra:object; owl:minCardinality "1"^^xsd:nonNegativeInteger],
+		[a owl:Restriction; owl:onProperty hydra:property; owl:minCardinality "1"^^xsd:nonNegativeInteger]
+	].
+hiowl:SubjectPropertyMemberAssertion owl:equivalentClass [
+	owl:intersectionOf
+		[a owl:Restriction; owl:onProperty hydra:subject; owl:minCardinality "1"^^xsd:nonNegativeInteger],
+		[a owl:Restriction; owl:onProperty hydra:property; owl:minCardinality "1"^^xsd:nonNegativeInteger]
+	].
+
+hydra:search owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:title; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:description; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:IriTemplate owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:mapping; owl:minCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:template; owl:cardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:IriTemplateMapping owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:required; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:variable; owl:cardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:variableRepresentation; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+hydra:returnsHeader rdfs:range [a owl:Class; owl:unionOf xsd:string, hydra:HeaderSpecification].
+
+hydra:expectsHeader rdfs:range [a owl:Class; owl:unionOf xsd:string, hydra:HeaderSpecification].
+
+hydra:HeaderSpecification owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:headerName; owl:cardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:possibleValue; owl:cardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:closedSet; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
+
+owl:Thing owl:equivalentClass
+	[a owl:Restriction; owl:onProperty hydra:view; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:first; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:last; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:next; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:previous; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:resolveRelativeUsing; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:offset; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:limit; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:pageReference; owl:maxCardinality "1"^^xsd:nonNegativeInteger],
+	[a owl:Restriction; owl:onProperty hydra:pageIndex; owl:maxCardinality "1"^^xsd:nonNegativeInteger].
