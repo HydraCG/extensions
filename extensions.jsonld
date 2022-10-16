@@ -1,0 +1,11 @@
+{
+  "@context": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "hex": "https://w3id.org/hydra/extension#"
+  },
+  "@id": "hex:shacl",
+  "rdfs:label": "SHACL extension for Hydra Core vocabulary",
+  "rdfs:seeAlso": {
+    "@id": "https://w3id.org/hydra/extension/shacl"
+  }
+}

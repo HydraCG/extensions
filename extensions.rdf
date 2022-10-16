@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:hex="https://w3id.org/hydra/extension#">
+
+	<rdf:Description rdf:about="https://w3id.org/hydra/extension#shacl">
+		<rdfs:label>SHACL extension for Hydra Core vocabulary</rdfs:label>
+		<rdfs:seeAlso rdf:resource="https://w3id.org/hydra/extension/shacl"/>
+	</rdf:Description>
+</rdf:RDF>

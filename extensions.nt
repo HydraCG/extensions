@@ -1,0 +1,2 @@
+<https://w3id.org/hydra/extension#shacl> <http://www.w3.org/2000/01/rdf-schema#label> "SHACL extension for Hydra Core vocabulary" .
+<https://w3id.org/hydra/extension#shacl> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://w3id.org/hydra/extension/shacl> .
